@@ -8,6 +8,7 @@ import awsExports from './aws-exports';
 
 import AddMovie from './AddMovie';
 import ListMovies from './ListMovies';
+import SearchMovies from './SearchMovies';
 import NoMatch from './NoMatch';
 
 import './App.css';
@@ -35,12 +36,16 @@ class App extends React.Component {
               <button>
                 <Link to="/ListMovies">Movie一覧</Link>
               </button>
+              <button>
+                <Link to="/SearchMovies">Movie検索</Link>
+              </button>
               <button onClick={signOut}>Sign out</button>
             </div>
 
             <Routes>
               <Route exact path="/" element={<AddMovie />} />
               <Route exact path="/ListMovies" element={<ListMovies />} />
+              <Route exact path="/SearchMovies" element={<SearchMovies />} />
               <Route exact path="*" element={<NoMatch />} />
             </Routes>
           </BrowserRouter>
