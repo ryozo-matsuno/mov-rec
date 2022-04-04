@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-movrec-dev-104318-authRole",
+      "UnauthRoleArn": "arn:aws:iam::053519206427:role/amplify-movrec-dev-104318-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::053519206427:role/amplify-movrec-dev-104318-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-movrec-dev-104318-deployment",
+      "UnauthRoleName": "amplify-movrec-dev-104318-unauthRole",
+      "StackName": "amplify-movrec-dev-104318",
+      "StackId": "arn:aws:cloudformation:us-west-2:053519206427:stack/amplify-movrec-dev-104318/f230ac80-b093-11ec-9188-0a1b5666f7bf",
+      "AmplifyAppId": "d2p3sj14fizczg"
+    },
+    "categories": {
+      "auth": {
+        "movrec5e6a3635": {}
+      }
+    }
+  }
+}
