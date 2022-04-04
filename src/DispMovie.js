@@ -38,16 +38,16 @@ const DispMovie = () => {
 
     console.log(padStartDate);
 
-    const MovieRecord = {titleJapanese:"",titleOriginal:"",director:"",releaseDate:"",RunningTime:"",Countries:"",set:"",no:""};
+    const MovieRecord = {japaneseTitle:"",originalTitle:"",director:"",releaseDate:"",runningTime:"",countries:"",boxNo:"",diskNo:""};
 
-    MovieRecord["titleJapanese"] = japaneseTitleInput.current.value;
-    MovieRecord["titleOriginal"] = originalTitleInput.current.value;
+    MovieRecord["japaneseTitle"] = japaneseTitleInput.current.value;
+    MovieRecord["originalTitle"] = originalTitleInput.current.value;
     MovieRecord["director"] = directorInput.current.value;
     MovieRecord["releaseDate"] = padStartDate;
-    MovieRecord["RunningTime"] = runningTimeInput.current.value;
-    MovieRecord["Countries"] = countriesInput.current.value;
-    MovieRecord["set"] = boxNoInput.current.value;
-    MovieRecord["no"] = diskNoInput.current.value;
+    MovieRecord["runningTime"] = runningTimeInput.current.value;
+    MovieRecord["countries"] = countriesInput.current.value;
+    MovieRecord["boxNo"] = boxNoInput.current.value;
+    MovieRecord["diskNo"] = diskNoInput.current.value;
 
     console.log(MovieRecord);
 
@@ -56,18 +56,18 @@ const DispMovie = () => {
     console.log(movieRecord);
 
     // appSyncの設定画面から取得
-    const API_URL = 'https://b3234ugjizcvfko6c2mzllo44y.appsync-api.us-west-2.amazonaws.com/graphql';
+    const API_URL = 'https://473muw3yrrdv5iojmmkajsfiky.appsync-api.us-west-2.amazonaws.com/graphql';
     
-    const QueryData =  "mutation MyMutation {createTestBIS01(input: " +
-            "{Countries: \"" +  MovieRecord["Countries"] + 
-            "\" , RunningTime: " + MovieRecord["RunningTime"] + 
+    const QueryData =  "mutation createRecordedMoviesDB {createRecordedMoviesDB(input: " +
+            "{countries: \"" +  MovieRecord["countries"] + 
+            "\" , runningTime: " + MovieRecord["runningTime"] + 
             ", director: \"" + MovieRecord["director"] + 
-            "\" , no: " + MovieRecord["no"] +
+            "\" , diskNo: " + MovieRecord["diskNo"] +
             ", releaseDate: \"" + MovieRecord["releaseDate"] +
-            "\" , set: " + MovieRecord["set"] + 
-            ", titleJapanese: \"" + MovieRecord["titleJapanese"] + 
-            "\" , titleOriginal: \"" + MovieRecord["titleOriginal"] +
-        "\" }) {id titleJapanese}}"
+            "\" , boxNo: " + MovieRecord["boxNo"] + 
+            ", japaneseTitle: \"" + MovieRecord["japaneseTitle"] + 
+            "\" , originalTitle: \"" + MovieRecord["originalTitle"] +
+        "\" }) {id japaneseTitle}}"
         
     console.log(QueryData);
 
@@ -81,7 +81,7 @@ const DispMovie = () => {
       {
         headers: {
           // header に APIキーを渡す。 appSync設定画面から取得
-          "x-api-key": "da2-jwftawh5ojgbxd2mhkjvdzffti"
+          "x-api-key": "da2-f3dd2euyljatbdleqhlzfcxseq"
         }
       }
     )

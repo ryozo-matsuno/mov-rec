@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 
 const MovieContext = createContext();
-const MovieRecord = {titleJapanese:"",titleOriginal:"",director:"",releaseDate:"",RunningTime:"",Countries:"",set:"",no:""};
+const MovieRecord = {japaneseTitle:"",originalTitle:"",director:"",releaseDate:"",runningTime:"",countries:"",boxNo:"",diskNo:""};
 
 
 export function useMovieContext() {

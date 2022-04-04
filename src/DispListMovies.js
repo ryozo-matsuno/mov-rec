@@ -27,7 +27,7 @@ const DispListMovies = () => {
 
   function setMovieRecords(response) {
 
-    const result = response.data.listTestBIS01S.items
+    const result = response.data.listRecordedMoviesDBS.items
     console.log(result);
     console.log(result.length);
     
@@ -43,25 +43,25 @@ const DispListMovies = () => {
 
             const row = table.insertRow();
             row.insertCell().appendChild(document.createTextNode(result[i].id));
-            row.insertCell().appendChild(document.createTextNode(result[i].titleJapanese));
-            row.insertCell().appendChild(document.createTextNode(result[i].titleOriginal));
+            row.insertCell().appendChild(document.createTextNode(result[i].japaneseTitle));
+            row.insertCell().appendChild(document.createTextNode(result[i].originalTitle));
             row.insertCell().appendChild(document.createTextNode(result[i].director));
             row.insertCell().appendChild(document.createTextNode(result[i].releaseDate));
-            row.insertCell().appendChild(document.createTextNode(result[i].RunningTime));
-            row.insertCell().appendChild(document.createTextNode(result[i].Countries));
-            row.insertCell().appendChild(document.createTextNode(result[i].set));
-            row.insertCell().appendChild(document.createTextNode(result[i].no));
+            row.insertCell().appendChild(document.createTextNode(result[i].runningTime));
+            row.insertCell().appendChild(document.createTextNode(result[i].countries));
+            row.insertCell().appendChild(document.createTextNode(result[i].boxNo));
+            row.insertCell().appendChild(document.createTextNode(result[i].diskNo));
 
             csvDataTemp.push({
               ID : result[i].id,
-              JapaneseTitle : result[i].titleJapanese,
-              OriginalTitle : result[i].titleOriginal,
+              JapaneseTitle : result[i].japaneseTitle,
+              OriginalTitle : result[i].originalTitle,
               Director : result[i].director,
               ReleaseDate : result[i].releaseDate,
-              RunningTime : result[i].RunningTime,
-              Counties : result[i].Countries,
-              BoxNo : result[i].set,
-              DiskNo : result[i].no
+              RunningTime : result[i].runningTime,
+              Counties : result[i].countries,
+              BoxNo : result[i].boxNo,
+              DiskNo : result[i].diskNo
             });
 
         }
@@ -85,12 +85,12 @@ const DispListMovies = () => {
     resultSearch.current.innerText = "";
 
     // appSyncの設定画面から取得
-    const API_URL = 'https://b3234ugjizcvfko6c2mzllo44y.appsync-api.us-west-2.amazonaws.com/graphql';
+    const API_URL = 'https://473muw3yrrdv5iojmmkajsfiky.appsync-api.us-west-2.amazonaws.com/graphql';
     
-    const QueryData = "query MyQuery {listTestBIS01S(filter: {set: {eq: " + 
+    const QueryData = "query listRecordedMoviesDBS {listRecordedMoviesDBS(filter: {boxNo: {eq: " + 
          textInput.current.value + 
          "}}) { nextToken  " +
-          "items { Countries RunningTime director id no releaseDate set titleJapanese titleOriginal " +
+          "items { countries runningTime director id diskNo releaseDate boxNo japaneseTitle originalTitle " +
         "}}}";
 
     console.log(QueryData);
@@ -104,7 +104,7 @@ const DispListMovies = () => {
       {
         headers: {
           // header に APIキーを渡す。 appSync設定画面から取得
-          "x-api-key": "da2-jwftawh5ojgbxd2mhkjvdzffti"
+          "x-api-key": "da2-f3dd2euyljatbdleqhlzfcxseq"
         }
       }
     )
